@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="18%" r="95%">
+      <stop offset="0" stop-color="#8E3F6F"/>
+      <stop offset=".45" stop-color="#4D2C47"/>
+      <stop offset="1" stop-color="#22252C"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#AA3D80" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#AA3D80" stop-opacity="0"/>
+    </radialGradient>
+    <path id="s" d="M0-10C.9-3 3-.9 10 0 3 .9.9 3 0 10-.9 3-3 .9-10 0-3-.9-.9-3 0-10Z"/>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g transform="translate(256 256) scale(1.0) translate(-256 -256)">
+    <circle cx="256" cy="262" r="190" fill="url(#glow)"/>
+    <circle cx="256" cy="262" r="178" fill="none" stroke="#DCC5D5" stroke-opacity=".35" stroke-width="4" stroke-dasharray="3 18" stroke-linecap="round"/>
+    <text x="244" y="366" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="500" font-size="300" fill="#F8F2F6">R</text>
+    <use href="#s" transform="translate(374 150) scale(4.2)" fill="#E48BC0"/>
+    <use href="#s" transform="translate(140 138) scale(1.8)" fill="#F8F2F6" opacity=".85"/>
+    <use href="#s" transform="translate(392 372) scale(1.4)" fill="#DCC5D5" opacity=".8"/>
+    <circle cx="120" cy="360" r="6" fill="#E48BC0"/>
+  </g>
+</svg>
