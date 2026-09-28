@@ -245,6 +245,23 @@ svg { display: block; }
    ============================================================= */
 .intro { display: none; }
 
+/* enquanto o envelope está na tela, o conteúdo de trás fica escondido
+   (a abertura é translúcida para mostrar a foto de fundo) */
+.js:not(.gift-opened) #conteudo,
+.js:not(.gift-opened) .footer {
+  visibility: hidden;
+}
+
+#conteudo,
+.footer {
+  transition: opacity 0.5s ease;
+}
+
+.js:not(.gift-opened) #conteudo,
+.js:not(.gift-opened) .footer {
+  opacity: 0;
+}
+
 .js .intro {
   position: fixed;
   inset: 0;
@@ -1521,7 +1538,7 @@ html:not(.js) .polaroid__button { cursor: default; }
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0s !important;
     transition-delay: 0s !important;
   }
 

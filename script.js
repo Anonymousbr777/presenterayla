@@ -345,6 +345,7 @@ const CONFIG = {
     const footer = $(".footer");
 
     if (!intro || !button) {
+      document.documentElement.classList.add("gift-opened");
       music.showToggle();
       onDone();
       return;
@@ -372,18 +373,23 @@ const CONFIG = {
 
       const fast = reducedMotion();
       intro.classList.add("is-opening");
-      window.setTimeout(() => intro.classList.add("is-leaving"), fast ? 0 : 800);
+      window.setTimeout(() => {
+        intro.classList.add("is-leaving");
+        document.documentElement.classList.add("gift-opened"); // o conteúdo aparece enquanto o envelope some
+      }, fast ? 0 : 800);
       window.setTimeout(finish, fast ? 0 : 1250);
     }
 
     function finish() {
+      document.documentElement.classList.add("gift-opened");
       music.showToggle();
       intro.hidden = true;
       setInert(false);
       document.body.classList.remove("is-locked");
       window.scrollTo(0, 0);
       const title = $("#hero-title");
-      if (title) title.focus({ preventScroll: true });
+      // espera o conteúdo ficar visível antes de mover o foco
+      if (title) requestAnimationFrame(() => title.focus({ preventScroll: true }));
       onDone();
     }
 
